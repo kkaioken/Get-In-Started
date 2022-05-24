@@ -1,12 +1,17 @@
+import { useState } from "react";
+import Cronometro from "../components/Cronometro";
 import Formulario from "../components/Formulario";
 import Lista from "../components/Lista";
-import "./style.scss";
+import { ITarefa } from "../types/ITarefa";
+import style from "./App.module.scss";
 
 function App() {
+    const [tarefas, setTarefas] = useState<ITarefa[]>([]);
   return (
-    <div className="AppStyle">
-      <Formulario />
-      <Lista />
+    <div className={style.AppStyle}>
+      <Formulario setTarefas={setTarefas} />
+      <Cronometro />
+      <Lista tarefas={tarefas} />
     </div>
   );
 }
