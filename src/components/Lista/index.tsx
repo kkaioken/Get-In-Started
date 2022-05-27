@@ -4,10 +4,12 @@ import style from "./Lista.module.scss";
 
 interface Props {
 	tarefas: ITarefa[],
-	selecionarTarefa(tarefaSelecionada: ITarefa): void
+	selecionarTarefa(tarefaSelecionada: ITarefa): void,
+	ativo: boolean | undefined
+
 }
 
-function Lista({ tarefas, selecionarTarefa }: Props) {
+function Lista({ tarefas, selecionarTarefa, ativo }: Props) {
 
 	return (
 
@@ -16,6 +18,7 @@ function Lista({ tarefas, selecionarTarefa }: Props) {
 			<ul>
 				{tarefas.map((item) => (
 					<Item
+						ativo={ativo}
 						key={item.id}
 						item={item}
 						selecionarTarefa={selecionarTarefa}
